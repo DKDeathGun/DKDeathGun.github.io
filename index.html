@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101d2c">
+  <meta name="description" content="Currículo e portfólio de Gustavo Fernandes, estudante de Ciência da Computação e candidato a estágio em GenAI.">
+  <title>Gustavo Fernandes | GenAI & Software</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #172536;
+      --muted: #5f6d7d;
+      --navy: #101d2c;
+      --panel: #182a3c;
+      --accent: #78e0c2;
+      --gold: #e9bd73;
+      --line: #dce4eb;
+      --paper: #f5f7f8;
+      --white: #fff;
+      --soft: #eaf5f2;
+      --shadow: 0 18px 45px rgba(10, 25, 40, .12);
+      --radius: 18px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font: 16px/1.6 Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+    }
+    a { color: inherit; }
+    .shell { width: min(1100px, calc(100% - 36px)); margin: auto; }
+    .hero {
+      background:
+        radial-gradient(circle at 82% 12%, rgba(120,224,194,.13), transparent 25rem),
+        linear-gradient(130deg, #101d2c, #172a3d 66%, #203b4c);
+      color: var(--white);
+      padding: 28px 0 48px;
+      position: relative;
+      overflow: hidden;
+    }
+    .topbar { display:flex; align-items:center; justify-content:space-between; gap:20px; }
+    .brand { display:flex; align-items:center; gap:10px; font-weight:750; letter-spacing:.04em; font-size:.9rem; }
+    .mark {
+      display:grid; place-items:center; width:34px; height:34px; border-radius:11px;
+      color:var(--navy); background:var(--accent); font-weight:900;
+    }
+    nav { display:flex; gap:22px; align-items:center; }
+    nav a { text-decoration:none; color:#d5e0e8; font-size:.9rem; }
+    nav a:hover, nav a:focus-visible { color:var(--accent); }
+    .print {
+      cursor:pointer; border:1px solid rgba(255,255,255,.32); color:white; background:rgba(255,255,255,.08);
+      border-radius:999px; padding:9px 15px; font:inherit; font-size:.85rem;
+    }
+    .hero-grid {
+      display:grid; grid-template-columns:minmax(0, 1fr) 270px; gap:52px;
+      align-items:end; padding-top:66px;
+    }
+    .eyebrow { color:var(--accent); font-size:.76rem; font-weight:800; letter-spacing:.16em; text-transform:uppercase; }
+    h1 { font-size:clamp(2.6rem, 6vw, 4.7rem); line-height:1.02; letter-spacing:-.055em; margin:13px 0 12px; }
+    .role { color:#d5e0e8; font-size:clamp(1.05rem, 2vw, 1.3rem); margin:0 0 16px; }
+    .intro { max-width:680px; color:#bdcbd7; font-size:1.02rem; margin:0; }
+    .hero-contact { display:flex; flex-wrap:wrap; gap:8px 20px; margin-top:24px; color:#e4edf2; font-size:.9rem; }
+    .hero-contact a { text-decoration:none; }
+    .hero-contact a:hover { color:var(--accent); }
+    .fit-card {
+      padding:21px; border:1px solid rgba(255,255,255,.14); border-radius:var(--radius);
+      background:rgba(255,255,255,.055); backdrop-filter:blur(8px);
+    }
+    .fit-card .label { color:#9fb0be; font-size:.75rem; text-transform:uppercase; letter-spacing:.12em; }
+    .fit-card strong { display:block; color:var(--accent); font-size:1.23rem; margin:4px 0 12px; }
+    .fit-card p { margin:0; color:#d5e0e8; font-size:.88rem; }
+    .fit-card hr { border:0; border-top:1px solid rgba(255,255,255,.15); margin:15px 0; }
+    main { padding:30px 0 65px; }
+    .section { margin:0 0 56px; scroll-margin-top:24px; }
+    .section-head { display:flex; align-items:end; justify-content:space-between; gap:20px; margin-bottom:19px; }
+    .kicker { color:#3c8977; text-transform:uppercase; letter-spacing:.15em; font-size:.72rem; font-weight:850; }
+    h2 { margin:3px 0 0; font-size:clamp(1.65rem,3vw,2.2rem); letter-spacing:-.035em; line-height:1.15; }
+    .section-note { color:var(--muted); font-size:.88rem; max-width:360px; margin:0; }
+    .grid-2 { display:grid; grid-template-columns:1.1fr .9fr; gap:18px; }
+    .card {
+      border:1px solid var(--line); background:var(--white); border-radius:var(--radius);
+      padding:23px; box-shadow:0 5px 20px rgba(10,25,40,.035);
+    }
+    .card h3 { margin:0 0 7px; font-size:1.1rem; letter-spacing:-.02em; }
+    .card p { margin:8px 0; color:#465567; }
+    .card .sub { color:var(--muted); font-size:.87rem; margin-top:0; }
+    .skills { display:flex; flex-wrap:wrap; gap:8px; margin-top:15px; }
+    .tag {
+      display:inline-flex; border:1px solid #d5e7e2; background:#f2faf7;
+      color:#245b50; border-radius:999px; padding:5px 10px; font-size:.79rem; font-weight:650;
+    }
+    .timeline { display:grid; gap:14px; }
+    .timeline-item {
+      display:grid; grid-template-columns:150px 1fr; gap:22px;
+      border-top:1px solid var(--line); padding:16px 0 5px;
+    }
+    .when { color:#3c8977; font-weight:750; font-size:.82rem; }
+    .timeline-item h3 { margin:0 0 4px; font-size:1.04rem; }
+    .timeline-item p { margin:4px 0; color:#516071; }
+    .timeline-item ul { margin:7px 0 0; padding-left:18px; color:#516071; }
+    .timeline-item li { margin:3px 0; }
+    .project-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }
+    .project {
+      display:flex; flex-direction:column; min-height:100%; background:white;
+      border:1px solid var(--line); border-radius:var(--radius); padding:23px;
+      box-shadow:0 5px 20px rgba(10,25,40,.035);
+    }
+    .project-top { display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:13px; }
+    .num { color:#3c8977; font-size:.77rem; font-weight:850; letter-spacing:.15em; }
+    .status { font-size:.72rem; color:#627181; background:#eef2f5; border-radius:999px; padding:5px 9px; }
+    .project h3 { font-size:1.17rem; line-height:1.25; margin:0 0 5px; }
+    .project .stack { color:#3c8977; font-size:.78rem; font-weight:750; margin:0 0 12px; }
+    .project p { color:#4b5b6b; margin:7px 0; font-size:.92rem; }
+    .project .result {
+      margin-top:auto; padding-top:14px; color:#203d36; font-weight:700; font-size:.87rem;
+    }
+    .project a { color:#236b5b; font-weight:700; text-decoration-thickness:1px; text-underline-offset:3px; }
+    .project.wide { grid-column:1/-1; }
+    .project.wide .columns { display:grid; grid-template-columns:1fr 1fr; gap:22px; }
+    .callout {
+      background:var(--navy); color:white; border-radius:var(--radius); padding:25px 28px;
+      display:flex; align-items:center; justify-content:space-between; gap:24px;
+    }
+    .callout h2 { font-size:1.35rem; }
+    .callout p { color:#c5d2db; margin:7px 0 0; }
+    .callout a { color:var(--navy); background:var(--accent); font-weight:800; text-decoration:none; white-space:nowrap; border-radius:999px; padding:11px 17px; }
+    .education { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    .education strong { display:block; color:var(--navy); font-size:1rem; }
+    .education span { color:var(--muted); font-size:.9rem; }
+    footer { background:#eaf0f3; padding:24px 0; color:#526170; font-size:.83rem; }
+    footer .shell { display:flex; justify-content:space-between; gap:16px; flex-wrap:wrap; }
+    @media (max-width:760px) {
+      .hero-grid { grid-template-columns:1fr; gap:26px; padding-top:45px; }
+      .fit-card { max-width:none; }
+      nav { gap:12px; }
+      nav a { font-size:.8rem; }
+      .grid-2, .project-grid, .education { grid-template-columns:1fr; }
+      .timeline-item { grid-template-columns:1fr; gap:2px; }
+      .project.wide { grid-column:auto; }
+      .project.wide .columns { grid-template-columns:1fr; gap:5px; }
+      .callout { align-items:flex-start; flex-direction:column; }
+    }
+    @media (max-width:470px) {
+      .shell { width:min(100% - 24px,1100px); }
+      .topbar { flex-wrap:wrap; }
+      nav { order:3; width:100%; justify-content:space-between; }
+      .print { margin-left:auto; }
+      .hero { padding-top:20px; }
+      .hero-grid { padding-top:37px; }
+      .card, .project { padding:18px; }
+    }
+    @media print {
+      @page { size:A4; margin:13mm; }
+      body { background:white; font-size:10pt; }
+      .shell { width:100%; }
+      .hero { background:#101d2c !important; color:white !important; padding:20px 0 25px; print-color-adjust:exact; -webkit-print-color-adjust:exact; }
+      nav, .print, .screen-only { display:none !important; }
+      .hero-grid { grid-template-columns:1fr 220px; gap:25px; padding-top:25px; }
+      h1 { font-size:34pt; }
+      main { padding:20px 0; }
+      .section { margin-bottom:25px; }
+      .card, .project, .fit-card, .callout { box-shadow:none; break-inside:avoid; }
+      .project-grid { grid-template-columns:1fr 1fr; }
+      .project.wide { grid-column:1/-1; }
+      .project, .card { padding:15px; }
+      a { text-decoration:none; }
+      footer { padding:12px 0; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero" id="topo">
+    <div class="shell">
+      <div class="topbar">
+        <div class="brand"><span class="mark">GF</span><span>PORTFÓLIO · SOFTWARE & IA</span></div>
+        <nav aria-label="Navegação principal">
+          <a href="#perfil">Perfil</a><a href="#experiencia">Experiência</a><a href="#projetos">Projetos</a><a href="#formacao">Formação</a>
+        </nav>
+        <button class="print" onclick="window.print()" aria-label="Imprimir ou salvar como PDF">Imprimir / PDF</button>
+      </div>
+      <div class="hero-grid">
+        <div>
+          <div class="eyebrow">Candidato a estágio em GenAI · AI Engineer</div>
+          <h1>Gustavo<br>Fernandes</h1>
+          <p class="role">Ciência da Computação · Rio de Janeiro, RJ</p>
+          <p class="intro">Construo aplicações que conectam software, automação e inteligência artificial. Gosto de aprender com objetivo claro, arquitetar soluções considerando diferentes fatores e transformar necessidades reais em sistemas utilizáveis.</p>
+          <div class="hero-contact">
+            <a href="mailto:gt10fb@gmail.com">gt10fb@gmail.com</a>
+            <a href="tel:+5521989527837">(21) 98952-7837</a>
+            <a href="https://github.com/DKDeathGun" target="_blank" rel="noreferrer">GitHub ↗</a>
+            <a href="https://www.linkedin.com/in/gustavo-fernandes-53ba6437a/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+          </div>
+        </div>
+        <aside class="fit-card" aria-label="Resumo da candidatura">
+          <span class="label">Disponibilidade</span>
+          <strong>30 horas / semana</strong>
+          <p>Faculdade permite estágio</p>
+          <hr>
+          <span class="label">Previsão de conclusão</span>
+          <strong>Julho de 2027</strong>
+          <p>Inglês avançado · certificado</p>
+        </aside>
+      </div>
+    </div>
+  </header>
+
+  <main class="shell">
+    <section class="section" id="perfil">
+      <div class="section-head">
+        <div><div class="kicker">Resumo profissional</div><h2>Software com IA no fluxo</h2></div>
+        <p class="section-note">Experiência prática em projetos acadêmicos, comerciais e operacionais.</p>
+      </div>
+      <div class="grid-2">
+        <article class="card">
+          <h3>Como trabalho</h3>
+          <p>Sou estudante de Ciência da Computação na Universidade Veiga de Almeida. Tenho experiência desenvolvendo aplicações em Python, integrando modelos Gemini com respostas estruturadas em JSON e automatizando tarefas de negócio.</p>
+          <p>Minha experiência também inclui entrega comercial, atendimento a adaptações de cliente e trabalho presencial na implantação de um sistema de vendas, estoque e gestão fiscal.</p>
+        </article>
+        <article class="card">
+          <h3>Ferramentas e tecnologias</h3>
+          <p class="sub">Tecnologias usadas nos projetos apresentados</p>
+          <div class="skills">
+            <span class="tag">Python</span><span class="tag">Google Gemini API</span><span class="tag">PostgreSQL</span>
+            <span class="tag">DigitalOcean</span><span class="tag">JSON</span><span class="tag">Telegram Bot API</span>
+            <span class="tag">Pygame</span><span class="tag">AutoHotkey</span><span class="tag">Excel</span><span class="tag">Kokoro TTS</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="experiencia">
+      <div class="section-head">
+        <div><div class="kicker">Experiência</div><h2>Entregas para pessoas e negócios</h2></div>
+        <p class="section-note">Desenvolvimento, automação e implantação de sistemas.</p>
+      </div>
+      <div class="timeline">
+        <article class="timeline-item">
+          <div class="when">Jan–abr/2026</div>
+          <div>
+            <h3>Desenvolvedor de software · NOBS</h3>
+            <p>Desenvolvi em Python uma solução sob medida, definida em reuniões com a empresa para atender ao fluxo, às limitações e aos recursos da operação. O projeto foi dividido em três aplicativos: PDF Uploader, InfoMed Uploader e Admin Dashboard. O PostgreSQL ficou hospedado continuamente na DigitalOcean.</p>
+            <ul>
+              <li>Aplicação comercializada por aproximadamente <strong>R$ 16 mil</strong>.</li>
+              <li>A proposta inicial previa 240 horas de desenvolvimento; trabalhei em média 15 horas por semana no período.</li>
+              <li>Realizei modificações e adaptações posteriores solicitadas pelo cliente sem cobrança adicional.</li>
+            </ul>
+          </div>
+        </article>
+        <article class="timeline-item">
+          <div class="when">2026</div>
+          <div>
+            <h3>Automação operacional · NOBS</h3>
+            <p>Criei uma automação em AutoHotkey (AHK) para consultar documentos no aplicativo mobile da Receita Federal por meio de um emulador Android no computador. A automação simulava entradas, usava comparação direta de imagens para localizar campos e identificar status, e atualizava os códigos correspondentes em uma planilha Excel.</p>
+            <p>Os usuários cadastrados recebiam pelo Telegram informações de andamento e alertas quando uma condição inesperada atrasava a execução.</p>
+          </div>
+        </article>
+        <article class="timeline-item">
+          <div class="when">Atual</div>
+          <div>
+            <h3>Apoio à implantação do FREST · restaurante da família</h3>
+            <p>Atuo presencialmente na instalação e implementação de funções existentes de vendas, estoque e gerenciamento fiscal. O sistema FREST já existe; minha atuação é na implantação e configuração das funcionalidades.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="projetos">
+      <div class="section-head">
+        <div><div class="kicker">Portfólio</div><h2>Projetos em destaque</h2></div>
+        <p class="section-note">Da interpretação de linguagem natural a sistemas usados em operações reais.</p>
+      </div>
+      <div class="project-grid">
+        <article class="project">
+          <div class="project-top"><span class="num">PROJETO 01</span><span class="status">TCC · em desenvolvimento</span></div>
+          <h3>Assistente virtual para gestão de despensa</h3>
+          <p class="stack">Python · Telegram · Gemini API · SQLite · JSON</p>
+          <p>Desenvolvi um assistente para organizar uma despensa doméstica por meio de conversas e diferentes interfaces. 
+            O bot do Telegram usa o Google Gemini para interpretar mensagens em linguagem natural e extrair produtos de fotos de notas fiscais.</p>
+            <p>As operações são convertidas em dados estruturados e executadas pelas regras do sistema, com persistência em SQLite (Protótipo) e separação dos estoques por usuário. 
+            O projeto também inclui uma interface web com FastAPI para consultar e atualizar itens, uma API para integração com Atalhos do iOS e lembretes periódicos de estoque. 
+            A arquitetura separa as interfaces das regras de negócio, permitindo que Telegram, site e Atalho compartilhem as mesmas operações da despensa.</p>
+
+          <p>Tecnologias: Python, Google Gemini, Telegram Bot API, FastAPI, SQLite, APIs HTTP/JSON.</p>
+          <p class="result">Avaliação piloto: 39 mensagens em sete categorias, repetidas três vezes. Acerto geral de 88,9% para 99,1% após correções; resultado preliminar, pois as mesmas perguntas orientaram os ajustes e nova rodada, teste de fotos e usabilidade seguem pendentes.</p><p class="result"><a href="https://github.com/TruePtk/Assistente_virtual_gestao_despensa" target="_blank" rel="noreferrer">Ver repositório no GitHub ↗</a></p>
+        </article>
+        <article class="project">
+          <div class="project-top"><span class="num">PROJETO 02</span><span class="status">Projeto autoral · pausado</span></div>
+          <h3>Tabuleiro Infinito</h3>
+          <p class="stack">Python · Pygame · Gemini API · Kokoro TTS</p>
+          <p>RPG em que o jogador interage com o mundo por linguagem natural. Gemini interpreta a mensagem e retorna JSON; o motor Python processa os dados e os transforma em ações dentro do jogo.</p>
+          <p>Kokoro gera a narração por síntese local de voz, reduzindo a dependência de chamadas de API para áudio. O código foi desenvolvido internamente e não está publicado.</p>
+          <p class="result">Pausado enquanto priorizo o TCC.</p>
+        </article>
+        <article class="project">
+          <div class="project-top"><span class="num">PROJETO 03</span><span class="status">Entrega comercial</span></div>
+          <h3>Gestão e visualização de dados de clientes</h3>
+          <p class="stack">Python · PostgreSQL · DigitalOcean</p>
+          <p>Solução em Python e PostgreSQL hospedado continuamente na DigitalOcean, definida em reuniões para atender às necessidades, limitações e recursos da operação. Dividida em três aplicativos: PDF Uploader (importação de informes financeiros), InfoMed Uploader (gestão de dados cadastrais) e Admin Dashboard (visualização consolidada, gestão de usuários e painel financeiro).</p>
+          <p class="result">Comercializada por aproximadamente R$ 16 mil · NOBS · 2026</p>
+        </article>
+        <article class="project">
+          <div class="project-top"><span class="num">PROJETO 04</span><span class="status">Automação operacional</span></div>
+          <h3>Consulta de documentos e atualização de planilha</h3>
+          <p class="stack">AutoHotkey · emulador Android · Excel · Telegram</p>
+          <p>Automação para consultar a situação de documentos no aplicativo mobile da Receita Federal e atualizar a informação correspondente na planilha da empresa. Usa emulador, simulação de entradas e comparação direta de imagens.</p>
+          <p class="result">Envia atualizações de progresso e alertas operacionais pelo Telegram.</p>
+        </article>
+        <article class="project wide">
+          <div class="project-top"><span class="num">ATUAÇÃO COMPLEMENTAR</span><span class="status">Projetos internos</span></div>
+          <div class="columns">
+            <div><h3>Implantação do sistema FREST</h3><p class="stack">Vendas · estoque · gestão fiscal</p><p>Apoio presencial no restaurante da família à implantação das funções existentes de um sistema geral de vendas, estoque e gestão fiscal.</p></div>
+            <div><h3>Bot para torneios no Discord</h3><p class="stack">Bot · gestão de comunidade</p><p>Experimento de bot para recepção e interação com usuários, gerenciamento de participantes e organização de torneios. Projeto interno, sem repositório público.</p></div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="formacao">
+      <div class="section-head">
+        <div><div class="kicker">Formação</div><h2>Aprendizado contínuo</h2></div>
+      </div>
+      <div class="education">
+        <article class="card"><strong>Ciência da Computação</strong><span>Universidade Veiga de Almeida · conclusão prevista para julho de 2027</span></article>
+        <article class="card"><strong>Inglês avançado</strong><span>Certificado de conclusão de curso</span></article>
+      </div>
+    </section>
+
+    <section class="section screen-only">
+      <div class="callout">
+        <div><h2>Vamos conversar sobre tecnologia?</h2><p>Disponível para estágio de 30 horas semanais.</p></div>
+        <a href="mailto:gt10fb@gmail.com">Enviar e-mail</a>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class="shell"><span>Gustavo Fernandes · Rio de Janeiro, RJ</span><span><a href="#topo">Voltar ao início ↑</a></span></div>
+  </footer>
+</body>
+</html>
